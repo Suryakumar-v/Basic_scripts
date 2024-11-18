@@ -1,0 +1,25 @@
+systemctl disable --now chronyd
+timedatectl set-time '2015-11-20 16:14:50'    
+systemctl restart chronyd
+timedatectl status
+Zscaler Momentum Note Taker joined as a guest
+ 
+sudo systemctl stop zpa-connector
+sudo rm -rf /opt/zscaler/var/*
+sudo touch /opt/zscaler/var/provision_key
+sudo chmod 644 /opt/zscaler/var/provision_key
+echo "<App Connector Provisioning Key>" | sudo tee /opt/zscaler/var/provision_key
+cat /opt/zscaler/var/provision_key
+sudo systemctl start zpa-connector
+sudo systemctl status zpa-connector
+
+cat /opt/zscaler/var/provision_key
+cd /opt/zscaler/var
+
+sudo vi /etc/yum.repos.d/zscaler.repo
+https://yum.private.zscaler.com/yum/el8
+sudo yum update -y
+sudo reboot
+
+sudo yum update -y
+sudo yum info zpa-connector
